@@ -4,7 +4,7 @@ interface Book {
     price: number;
 }
 
-let books:Book[] = [
+const books: Book[] = [
     {
         id: "1",
         name: "Book1",
