@@ -1,20 +1,25 @@
 <template>
-  <div class="booklist-container items-center">
-      <div class="booklist flex flex-wrap">
-    
-    <div class="max-w-sm rounded overflow-hidden shadow-lg m-5" v-for="book in books" :key="book.id">
-        <img class="" :alt="book.name" :src='"@/assets/Book_pic/Book" + book.id + ".jpg"' />
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{{book.name}}</div>
-            <p class="text-gray-700 text-base">
-            {{book.price + "THB"}}
-            </p>
-            <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                Add to cart
-                </button>
-  </div>
-  </div>
-</div>
+  <div class="booklist-container justify-center text-center">
+    <div class="booklist flex flex-wrap w-11/12 m-auto">
+      <div
+        class="max-w-sm rounded overflow-hidden shadow-lg m-5 w-56"
+        v-for="book in books"
+        :key="book.id"
+      >
+        <img class="w-full h-64" :alt="book.name" :src='"@/assets/Book_pic/Book" + book.id + ".jpg"' />
+        <div class="px-4 py-4">
+          <div class="flex justify-start">
+            <div class="font-bold text-sm mb-2 truncate">{{book.name}}</div>
+          </div>
+          <div class="flex justify-start">
+            <p class="text-gray-700 text-sm">{{book.price + "THB"}}</p>
+          </div>
+          <button
+            class="mt-3 w-full bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          >Add to cart</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,11 +42,8 @@ export default {
 </script>
 
 <style scoped>
-
-
-div img {
-    width: 200px;
-    height: 300px;
-}
-
+/* div img {
+  width: 200px;
+  height: 300px;
+} */
 </style>

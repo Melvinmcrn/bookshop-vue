@@ -7,7 +7,7 @@ interface Book {
 const books: Book[] = [
     {
         id: "1",
-        name: "Book1",
+        name: "Harry Potter and the Philosopher's Stone",
         price:100,
     },
     {
