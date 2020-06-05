@@ -16,6 +16,7 @@
           </div>
           <button
             class="mt-3 w-full bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            v-on:click="addToCart(book.id, book.name, book.price)"
           >Add to cart</button>
         </div>
       </div>
@@ -23,27 +24,21 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
 import books from "@/assets/books.ts";
-
-for (let i = 0; i < books.length; i++) {
-  console.log(books[i]);
-}
+import { addItem } from "@/logic/updateShoppingCart.ts";
 
 export default {
   name: "Booklist",
-  components: {},
   data() {
     return { books };
+  },
+  methods: {
+      addToCart(id: string, name: string, price: number) {
+          addItem(id, name, price, 1);
+      }
   }
 };
 </script>
-
-<style scoped>
-/* div img {
-  width: 200px;
-  height: 300px;
-} */
-</style>

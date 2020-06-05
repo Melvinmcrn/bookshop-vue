@@ -1,4 +1,4 @@
-interface cartItem {
+interface CartItem {
   id: string;
   name: string;
   price: number;
@@ -11,32 +11,39 @@ export function addItem(
   price: number,
   amount: number
 ): void {
-  let shoppingCart: cartItem[] = [];
+    // console.log("add item");
+  let shoppingCart: CartItem[] = [];
   if (localStorage.shoppingCart) {
-    shoppingCart = localStorage.shoppingCart;
+    shoppingCart = JSON.parse(localStorage.shoppingCart);
   }
 
   for (let i = 0; i < shoppingCart.length; i++) {
     if (shoppingCart[i].id === id) {
+        // console.log("FOUND");
       shoppingCart[i].amount = shoppingCart[i].amount + amount;
+      localStorage.shoppingCart = JSON.stringify(shoppingCart);
       return;
     }
   }
+//   console.log("NEW ITEM");
   shoppingCart.push({
     id,
     name,
     price,
     amount,
   });
+
+  console.log(shoppingCart);
+  localStorage.shoppingCart = JSON.stringify(shoppingCart);
 }
 
 export function removeItem(
   id: string,
   amount: number
 ): void {
-  let shoppingCart: cartItem[] = [];
+  let shoppingCart: CartItem[] = [];
   if (localStorage.shoppingCart) {
-    shoppingCart = localStorage.shoppingCart;
+    shoppingCart = JSON.parse(localStorage.shoppingCart);
   }
 
   for (let i = 0; i < shoppingCart.length; i++) {
@@ -50,4 +57,6 @@ export function removeItem(
       }
     }
   }
+
+  localStorage.shoppingCart = JSON.stringify(shoppingCart);
 }
