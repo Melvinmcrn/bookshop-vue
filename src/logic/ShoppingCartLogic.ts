@@ -50,13 +50,22 @@ export function removeItem(
     if (shoppingCart[i].id === id) {
       if (shoppingCart[i].amount > amount) {
         shoppingCart[i].amount = shoppingCart[i].amount - amount;
+        localStorage.shoppingCart = JSON.stringify(shoppingCart);
         return;
       } else if (shoppingCart[i].amount === amount) {
         shoppingCart.splice(i, 1);
+        localStorage.shoppingCart = JSON.stringify(shoppingCart);
         return;
       }
     }
   }
 
   localStorage.shoppingCart = JSON.stringify(shoppingCart);
+}
+
+export function getCart(): CartItem[] {
+  if (localStorage.shoppingCart) {
+    return JSON.parse(localStorage.shoppingCart);
+  }
+  return [];
 }

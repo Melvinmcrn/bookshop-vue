@@ -28,7 +28,7 @@
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
 import books from "@/assets/books.ts";
-import { addItem } from "@/logic/updateShoppingCart.ts";
+import { addItem } from "@/logic/ShoppingCartLogic.ts";
 
 export default {
   name: "Booklist",
