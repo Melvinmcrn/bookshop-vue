@@ -1,13 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
+
+      <NavBar>TEST</NavBar>
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/booklist">Booklist</router-link>
-    </div>
+    </div> -->
     <router-view/>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import NavBar from './components/NavBar.vue';
+
+export default Vue.extend({
+  components: {
+    NavBar
+  }
+  
+})
+</script>
 
 <style>
 #app {
